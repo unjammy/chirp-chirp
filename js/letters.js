@@ -13,10 +13,18 @@ var counter = {
   "q" : 0,  "r" : 0,  "s" : 0,  "t" : 0,
   "u" : 0,  "v" : 0,  "w" : 0,  "x" : 0,
   "y" : 0,  "z" : 0
-}
+};
 
 function countLetters(counter, sample_text){
   // FIX ME
+  var letter = sample_text.slice(0,1);
+  letter.toLowerCase();
+  if(letter){
+    counter.hasOwnProperty(letter) ? counter[letter]++ : console.log('not a letter');
+    countLetters(counter, sample_text.substring(1, sample_text.length));
+  } else {
+    return;
+  }
 }
 
 $(document).ready(function(){
